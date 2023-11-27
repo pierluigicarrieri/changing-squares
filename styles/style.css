@@ -1,4 +1,12 @@
-.main-container {
-    width: 700px;
+#minefield {
     aspect-ratio: 1/1;
+}
+
+.cell {
+    aspect-ratio: 1 / 1;
+    width: 8px;
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
