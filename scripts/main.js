@@ -4,25 +4,25 @@ const squaresNumber = 81;
 
 // const difficultySelectorElement = document.getElementById("difficulty_selector");
 // const minefieldCreatorElement = document.getElementById("minefield_creator");
-const minefieldElement = document.getElementById("minefield");
+const mainSquareElement = document.getElementById("main-square");
 
 // minefieldCreatorElement.addEventListener("click", clickMinefieldCreator);
 
 /**
  * Starts program when "Play" button is clicked
  */
-function clickMinefieldCreator() {
+function squareElementCreator() {
 
-    const difficulty = squaresNumber;
+    const size = squaresNumber;
 
-    const createdMinefield = minefieldCreator(difficulty);
+    const createdSquare = squareCreator(size);
 
-    minefieldOutput(minefieldElement, createdMinefield);
+    squareOutput(mainSquareElement, createdSquare);
 
 }
 
 /**
- * Creates a single minefield cell
+ * Creates a single cell
  * @param {string} cellContent Content of the created cell
  * @param {number} cellsPerRow How many cells on a single row
  * @returns {HTMLDivElement} Minefield cell
@@ -51,36 +51,36 @@ function cellCreator (cellContent, cellsPerRow) {
 }
 
 /**
- * Creates minefiled
- * @param {number} difficultyArgument Number of cells to put in minefield
- * @returns {HTMLDivElement[]} Minefield as cells array
+ * Creates square
+ * @param {number} sizeArgument Number of cells to put in square
+ * @returns {HTMLDivElement[]} Square as cells array
  */
-function minefieldCreator (difficultyArgument) {
+function squareCreator (sizeArgument) {
 
-    const minefield = [];
+    const square = [];
 
-    for (let i = 0; i < difficultyArgument; i++) {
+    for (let i = 0; i < sizeArgument; i++) {
 
-        const createdCell = cellCreator(i+1, difficultyArgument);
+        const createdCell = cellCreator(i+1, sizeArgument);
 
-        minefield.push(createdCell);
+        square.push(createdCell);
 
     }
 
-    return minefield;
+    return square;
 
 }
 
 /**
- * Adds minefield to Html
- * @param {HTMLDivElement} minefieldContainer 
+ * Adds square to Html
+ * @param {HTMLDivElement} squareContainer 
  * @param {HTMLDivElement[]} cellList 
  */
-function minefieldOutput(minefieldContainer, cellList) {
+function squareOutput(squareContainer, cellList) {
 
     for (let i = 0; i < cellList.length; i++) {
 
-        minefieldContainer.append(cellList[i]);
+        squareContainer.append(cellList[i]);
 
     }
 

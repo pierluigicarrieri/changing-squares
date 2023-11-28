@@ -1,5 +1,11 @@
-#minefield {
+#main-square {
     aspect-ratio: 1/1;
+    transition: 0.5s;
+}
+
+#main-square:hover {
+    background-color: pink;
+    transition: 0.5s;
 }
 
 .cell {
@@ -9,4 +15,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: 0.5s;
+}
+
+.cell:hover {
+    background-color: red;
+    transition: 0.5s;
 }
