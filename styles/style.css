@@ -1,11 +1,16 @@
 #main-square {
     aspect-ratio: 1/1;
     transition: 0.5s;
+    max-height: 80vh;
 }
 
 #main-square:hover {
     background-color: pink;
     transition: 0.5s;
+}
+
+main {
+    min-height: 100vh;
 }
 
 .cell {
