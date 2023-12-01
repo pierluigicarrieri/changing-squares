@@ -1,5 +1,7 @@
 "use strict";
 
+const square = [];
+
 const squaresNumber = 81;
 
 // const difficultySelectorElement = document.getElementById("difficulty_selector");
@@ -42,20 +44,21 @@ function cellCreator (cellContent, cellsPerRow) {
     cell.addEventListener("click", function() {
 
         cell.classList.toggle("bg-info-subtle");
-        console.log(cellContent);
+
     }
     )
 
     cell.addEventListener("mouseover", function() {
 
-        cell.classList.toggle("hovered-cell");
-        
+        squareColors(cellContent)
+
     }
     )
 
     cell.addEventListener("mouseout", function() {
 
-        cell.classList.toggle("hovered-cell");
+        squareColors(cellContent)
+
     }
     )
 
@@ -69,8 +72,6 @@ function cellCreator (cellContent, cellsPerRow) {
  * @returns {HTMLDivElement[]} Square as cells array
  */
 function squareCreator (sizeArgument) {
-
-    const square = [];
 
     for (let i = 0; i < sizeArgument; i++) {
 
@@ -96,5 +97,31 @@ function squareOutput(squareContainer, cellList) {
         squareContainer.append(cellList[i]);
 
     }
+
+}
+
+function squareColors (cellNumber) {
+
+    square.forEach(cell => {
+
+        if (cellNumber == cell.innerHTML) {
+
+            cell.classList.toggle("hovered-cell");
+
+        };
+
+        if (cellNumber - 10 == (cell.innerHTML) ||
+            cellNumber - 9 == (cell.innerHTML) ||
+            cellNumber - 8 == (cell.innerHTML) ||
+            cellNumber - 1 == (cell.innerHTML) ||
+            cellNumber + 1 == (cell.innerHTML) ||
+            cellNumber + 8 == (cell.innerHTML) ||
+            cellNumber + 9 == (cell.innerHTML) ||
+            cellNumber + 10 == (cell.innerHTML)
+            ) {
+            cell.classList.toggle('hovered-cell-first')
+            console.log(cell);
+        }
+    });
 
 }
