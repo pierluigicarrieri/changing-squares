@@ -50,14 +50,14 @@ function cellCreator (cellContent, cellsPerRow) {
 
     cell.addEventListener("mouseover", function() {
 
-        squareColors(cellContent)
+        squareColors(cellContent, cellsSingleRow)
 
     }
     )
 
     cell.addEventListener("mouseout", function() {
 
-        squareColors(cellContent)
+        squareColors(cellContent, cellsSingleRow)
 
     }
     )
@@ -100,27 +100,62 @@ function squareOutput(squareContainer, cellList) {
 
 }
 
-function squareColors (cellNumber) {
+function squareColors (cellNumber, cellsPerRow) {
 
-    square.forEach(cell => {
+    square.forEach((cell, i) => {
 
-        if (cellNumber == cell.innerHTML) {
+        if (cell.innerHTML == cellNumber) {
 
             cell.classList.toggle("hovered-cell");
 
         };
 
-        if (cellNumber - 10 == (cell.innerHTML) ||
-            cellNumber - 9 == (cell.innerHTML) ||
-            cellNumber - 8 == (cell.innerHTML) ||
-            cellNumber - 1 == (cell.innerHTML) ||
-            cellNumber + 1 == (cell.innerHTML) ||
-            cellNumber + 8 == (cell.innerHTML) ||
-            cellNumber + 9 == (cell.innerHTML) ||
-            cellNumber + 10 == (cell.innerHTML)
+        if (cellNumber % cellsPerRow == 1) {
+
+            if (
+                (cell.innerHTML) == cellNumber - 9 ||
+                (cell.innerHTML) == cellNumber - 8 ||
+                (cell.innerHTML) == cellNumber + 1 ||
+                (cell.innerHTML) == cellNumber + 9 ||
+                (cell.innerHTML) == cellNumber + 10
+                ) {
+    
+                    cell.classList.toggle('hovered-cell-first');
+    
+            };
+
+        } else if (cellNumber % cellsPerRow == 0) {
+
+            if (
+                (cell.innerHTML) == cellNumber - 10 ||
+                (cell.innerHTML) == cellNumber - 9 ||
+                (cell.innerHTML) == cellNumber - 1 ||
+                (cell.innerHTML) == cellNumber + 8 ||
+                (cell.innerHTML) == cellNumber + 9
+                ) {
+    
+                    cell.classList.toggle('hovered-cell-first');
+    
+            };
+
+        };
+            
+        if (
+            ((cell.innerHTML) == cellNumber - 10 ||
+            (cell.innerHTML) == cellNumber - 9 ||
+            (cell.innerHTML) == cellNumber - 8 ||
+            (cell.innerHTML) == cellNumber - 1 ||
+            (cell.innerHTML) == cellNumber + 1 ||
+            (cell.innerHTML) == cellNumber + 8 ||
+            (cell.innerHTML) == cellNumber + 9 ||
+            (cell.innerHTML) == cellNumber + 10) && 
+            !(cellNumber % cellsPerRow == 1) &&
+            !(cellNumber % cellsPerRow == 0)
             ) {
-            cell.classList.toggle('hovered-cell-first')
-            console.log(cell);
+
+                cell.classList.toggle('hovered-cell-first');
+                console.log(cellNumber % cellsPerRow);
+
         }
     });
 
