@@ -1,6 +1,8 @@
 "use strict";
 
-const squaresNumber = 81;
+const square = [];
+
+const squaresNumber = 100;
 
 // const difficultySelectorElement = document.getElementById("difficulty_selector");
 // const minefieldCreatorElement = document.getElementById("minefield_creator");
@@ -42,7 +44,21 @@ function cellCreator (cellContent, cellsPerRow) {
     cell.addEventListener("click", function() {
 
         cell.classList.toggle("bg-info-subtle");
-        console.log(cellContent);
+
+    }
+    )
+
+    cell.addEventListener("mouseover", function() {
+
+        squareColors(cellContent, cellsSingleRow)
+
+    }
+    )
+
+    cell.addEventListener("mouseout", function() {
+
+        squareColors(cellContent, cellsSingleRow)
+
     }
     )
 
@@ -56,8 +72,6 @@ function cellCreator (cellContent, cellsPerRow) {
  * @returns {HTMLDivElement[]} Square as cells array
  */
 function squareCreator (sizeArgument) {
-
-    const square = [];
 
     for (let i = 0; i < sizeArgument; i++) {
 
@@ -83,5 +97,65 @@ function squareOutput(squareContainer, cellList) {
         squareContainer.append(cellList[i]);
 
     }
+
+}
+
+function squareColors (cellNumber, cellsPerRow) {
+
+    square.forEach((cell, i) => {
+
+        if (cell.innerHTML == cellNumber) {
+
+            cell.classList.toggle("hovered-cell");
+
+        };
+
+        if (cellNumber % cellsPerRow == 1) {
+
+            if (
+                (cell.innerHTML) == cellNumber - cellsPerRow ||
+                (cell.innerHTML) == cellNumber - (cellsPerRow - 1) ||
+                (cell.innerHTML) == cellNumber + 1 ||
+                (cell.innerHTML) == cellNumber + cellsPerRow ||
+                (cell.innerHTML) == cellNumber + (cellsPerRow + 1)
+                ) {
+    
+                    cell.classList.toggle('hovered-cell-first');
+    
+            };
+
+        } else if (cellNumber % cellsPerRow == 0) {
+
+            if (
+                (cell.innerHTML) == cellNumber - (cellsPerRow + 1) ||
+                (cell.innerHTML) == cellNumber - cellsPerRow ||
+                (cell.innerHTML) == cellNumber - 1 ||
+                (cell.innerHTML) == cellNumber + (cellsPerRow - 1) ||
+                (cell.innerHTML) == cellNumber + cellsPerRow
+                ) {
+    
+                    cell.classList.toggle('hovered-cell-first');
+    
+            };
+
+        };
+            
+        if (
+            ((cell.innerHTML) == (cellNumber - (cellsPerRow + 1)) ||
+            (cell.innerHTML) == cellNumber - cellsPerRow ||
+            (cell.innerHTML) == cellNumber - (cellsPerRow - 1) ||
+            (cell.innerHTML) == cellNumber - 1 ||
+            (cell.innerHTML) == cellNumber + 1 ||
+            (cell.innerHTML) == cellNumber + (cellsPerRow - 1) ||
+            (cell.innerHTML) == cellNumber + cellsPerRow ||
+            (cell.innerHTML) == cellNumber + (cellsPerRow + 1)) && 
+            !(cellNumber % cellsPerRow == 1) &&
+            !(cellNumber % cellsPerRow == 0)
+            ) {
+
+                cell.classList.toggle('hovered-cell-first');
+
+        }
+    });
 
 }
