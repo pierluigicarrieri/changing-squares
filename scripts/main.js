@@ -113,11 +113,11 @@ function squareColors (cellNumber, cellsPerRow) {
         if (cellNumber % cellsPerRow == 1) {
 
             if (
-                (cell.innerHTML) == cellNumber - 9 ||
-                (cell.innerHTML) == cellNumber - 8 ||
+                (cell.innerHTML) == cellNumber - cellsPerRow ||
+                (cell.innerHTML) == cellNumber - (cellsPerRow - 1) ||
                 (cell.innerHTML) == cellNumber + 1 ||
-                (cell.innerHTML) == cellNumber + 9 ||
-                (cell.innerHTML) == cellNumber + 10
+                (cell.innerHTML) == cellNumber + cellsPerRow ||
+                (cell.innerHTML) == cellNumber + (cellsPerRow + 1)
                 ) {
     
                     cell.classList.toggle('hovered-cell-first');
@@ -127,11 +127,11 @@ function squareColors (cellNumber, cellsPerRow) {
         } else if (cellNumber % cellsPerRow == 0) {
 
             if (
-                (cell.innerHTML) == cellNumber - 10 ||
-                (cell.innerHTML) == cellNumber - 9 ||
+                (cell.innerHTML) == cellNumber - (cellsPerRow + 1) ||
+                (cell.innerHTML) == cellNumber - cellsPerRow ||
                 (cell.innerHTML) == cellNumber - 1 ||
-                (cell.innerHTML) == cellNumber + 8 ||
-                (cell.innerHTML) == cellNumber + 9
+                (cell.innerHTML) == cellNumber + (cellsPerRow - 1) ||
+                (cell.innerHTML) == cellNumber + cellsPerRow
                 ) {
     
                     cell.classList.toggle('hovered-cell-first');
@@ -141,20 +141,19 @@ function squareColors (cellNumber, cellsPerRow) {
         };
             
         if (
-            ((cell.innerHTML) == cellNumber - 10 ||
-            (cell.innerHTML) == cellNumber - 9 ||
-            (cell.innerHTML) == cellNumber - 8 ||
+            ((cell.innerHTML) == (cellNumber - (cellsPerRow + 1)) ||
+            (cell.innerHTML) == cellNumber - cellsPerRow ||
+            (cell.innerHTML) == cellNumber - (cellsPerRow - 1) ||
             (cell.innerHTML) == cellNumber - 1 ||
             (cell.innerHTML) == cellNumber + 1 ||
-            (cell.innerHTML) == cellNumber + 8 ||
-            (cell.innerHTML) == cellNumber + 9 ||
-            (cell.innerHTML) == cellNumber + 10) && 
+            (cell.innerHTML) == cellNumber + (cellsPerRow - 1) ||
+            (cell.innerHTML) == cellNumber + cellsPerRow ||
+            (cell.innerHTML) == cellNumber + (cellsPerRow + 1)) && 
             !(cellNumber % cellsPerRow == 1) &&
             !(cellNumber % cellsPerRow == 0)
             ) {
 
                 cell.classList.toggle('hovered-cell-first');
-                console.log(cellNumber % cellsPerRow);
 
         }
     });
