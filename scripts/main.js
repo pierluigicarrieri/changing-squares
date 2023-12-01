@@ -49,6 +49,7 @@ function cellCreator (cellContent, cellsPerRow) {
     cell.addEventListener("mouseover", function() {
 
         cell.classList.toggle("hovered-cell");
+        
     }
     )
 
