@@ -18,7 +18,12 @@
     transition: 0.5s;
 }
 
-.cell:hover {
+/* .cell:hover {
+    background-color: red;
+    transition: 0.5s;
+} */
+
+.hovered-cell {
     background-color: red;
     transition: 0.5s;
 }

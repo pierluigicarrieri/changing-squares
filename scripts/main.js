@@ -46,6 +46,18 @@ function cellCreator (cellContent, cellsPerRow) {
     }
     )
 
+    cell.addEventListener("mouseover", function() {
+
+        cell.classList.toggle("hovered-cell");
+    }
+    )
+
+    cell.addEventListener("mouseout", function() {
+
+        cell.classList.toggle("hovered-cell");
+    }
+    )
+
     return cell;
 
 }
