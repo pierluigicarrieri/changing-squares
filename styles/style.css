@@ -10,20 +10,23 @@ main {
 }
 
 .cell {
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 1/1;
     width: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: rgba(0, 0, 0, 0);
     transition: 0.1s;
 }
 
 .hovered-cell {
+    color: rgba(0, 0, 0, 0);
     background-color: #FFCBD2;
     transition: 0.1s;
 }
 
 .hovered-cell-first {
+    color: rgba(0, 0, 0, 0);
     background-color: #FF2D2C;
     transition: 0.1s;
 }
