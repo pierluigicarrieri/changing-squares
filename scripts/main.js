@@ -2,7 +2,7 @@
 
 const square = [];
 
-const squaresNumber = 400;
+const squaresNumber = 361;
 
 // const difficultySelectorElement = document.getElementById("difficulty_selector");
 // const minefieldCreatorElement = document.getElementById("minefield_creator");
